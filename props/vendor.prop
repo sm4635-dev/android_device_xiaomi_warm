@@ -6,17 +6,9 @@ aaudio.mmap_policy=2
 audio.deep_buffer.media=true
 audio.offload.video=true
 debug.c2.use_dmabufheaps=1
-persist.vendor.audio.auto.scenario=true
 persist.vendor.audio.induce_crash=false
-persist.vendor.audio.misound.disable=true
-persist.vendor.audio.misoundasc=true
 ro.audio.flinger_standbytime_ms=2000
-ro.audio.monitorRotation=true
-ro.audio.spatializer_enabled=true
-ro.vendor.audio.btsamplerate.adaptive=true
-ro.vendor.audio.dualadc.support=true
-ro.vendor.audio.gain.support=true
-ro.vendor.audio.support.sound.id=true
+ro.audio.monitorRotation=false
 vendor.audio.adm.buffering.ms=2
 vendor.audio.compress_capture.aac.cut_off_freq=-1
 vendor.audio.compress_capture.aac=true
@@ -39,17 +31,6 @@ vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_size=192
 vendor.qc2audio.per_frame.flac.dec.enabled=true
 vendor.qc2audio.suspend.enabled=true
-audio.spatializer.pose_predictor_type=2
-audio.spatializer.prediction_duration_ms=50
-persist.vendor.audio.effectimplenter=dolby
-persist.vendor.audio.spatializer.enable=false
-persist.vendor.audio.spf_restart=true
-ro.vendor.audio.aw.monitor=true
-ro.vendor.audio.camera.loopback.support=false
-ro.vendor.audio.dolby.spatial.profile=dynamic
-ro.vendor.audio.elus.enable=true
-ro.vendor.audio.record.customized.support=true
-ro.vendor.soundtrigger.dfs.support=1
 vendor.audio.cpu.sched.cpus=8
 vendor.audio.cpu.sched.cpuset.af=248
 vendor.audio.cpu.sched.cpuset.at=248
@@ -58,11 +39,8 @@ vendor.audio.cpu.sched.cpuset.he=248
 vendor.audio.cpu.sched.cpuset.hso=248
 vendor.audio.cpu.sched.onlyfast=false
 vendor.audio.cpu.sched=31
-vendor.audio.mic.status=off
 vendor.audio.rt.mode.onlyfast=false
-vendor.audio.rt.mode=19
-vendor.audio.ultrasound.stoplatency=60
-vendor.audio.ultrasound.usync=100
+vendor.audio.rt.mode=23
 
 # Bluetooth
 bluetooth.profile.a2dp.source.enabled=true
@@ -258,3 +236,4 @@ ro.config.vc_call_vol_steps=11
 
 # WLAN
 wifi.aware.interface=wifi-aware0
+
