@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/warm
+KERNEL_PATH := device/xiaomi/warm-kernel
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
