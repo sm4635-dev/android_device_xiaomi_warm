@@ -35,9 +35,151 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
+    (
+    ): lib_fixup_odm_suffix,
+    (
+        'vendor.qti.diaghal@1.0',
+        'vendor.qti.hardware.qccsyshal@1.0',
+        'vendor.qti.hardware.qccsyshal@1.1',
+        'vendor.qti.hardware.qccsyshal@1.2',
+        'vendor.qti.hardware.wifidisplaysession@1.0',
+        'vendor.qti.ImsRtpService-V1-ndk',
+        'vendor.qti.imsrtpservice@3.0',
+        'vendor.qti.imsrtpservice@3.1',
+        'vendor.qti.qccvndhal_aidl-V1-ndk',
+    ): lib_fixup_vendor_suffix,
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'system_ext/etc/vintf/manifest/vendor.qti.qesdsys.service.xml': blob_fixup()
+        .regex_replace(r'(?s)^.*?(?=<manifest)', ''),
+    'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
+        .add_needed('libgui_shim.so'),
+    'system_ext/lib64/libwfdnative.so': blob_fixup()
+        .add_needed('libbinder_shim.so')
+        .add_needed('libinput_shim.so')
+        .remove_needed('android.hidl.base@1.0.so'),
+    (
+        'vendor/lib64/hw/camera.qcom.so',
+        'vendor/lib64/hw/com.qti.chi.override.so',
+    ): blob_fixup()
+        .add_needed('libprocessgroup_shim.so')
+        .replace_needed(
+            'android.hardware.graphics.allocator-V1-ndk.so',
+            'android.hardware.graphics.allocator-V2-ndk.so'
+    ),
+    (
+        'vendor/lib64/camera/com.qti.sensor.c3f2_king_hi556w_front_ii.so',
+        'vendor/lib64/camera/com.qti.sensor.c3f2_shine_imx852_main_ii.so',
+        'vendor/lib64/camera/com.qti.sensor.c3f2_truly_s5kjns_main_i.so',
+        'vendor/lib64/camera/com.qti.sensor.c3f2_truly_sc520cs_front_i.so',
+        'vendor/lib64/camera/components/com.qti.node.depth.so',
+        'vendor/lib64/camera/components/com.qti.node.dewarp.so',
+        'vendor/lib64/camera/components/com.qti.node.eisv2.so',
+        'vendor/lib64/camera/components/com.qti.node.eisv3.so',
+        'vendor/lib64/camera/components/com.qti.node.ml.so',
+        'vendor/lib64/camera/components/com.qti.node.swec.so',
+        'vendor/lib64/camera/components/com.qti.node.swregistration.so',
+        'vendor/lib64/camera/components/com.qti.stats.cnndriver.so',
+        'vendor/lib64/camera/components/libdepthmapwrapper_secure.so',
+        'vendor/lib64/com.qti.chiusecaseselector.so',
+        'vendor/lib64/com.qti.feature2.anchorsync.so',
+        'vendor/lib64/com.qti.feature2.demux.so',
+        'vendor/lib64/com.qti.feature2.derivedoffline.so',
+        'vendor/lib64/com.qti.feature2.frameselect.so',
+        'vendor/lib64/com.qti.feature2.fusion.so',
+        'vendor/lib64/com.qti.feature2.generic.so',
+        'vendor/lib64/com.qti.feature2.gs.cedros.so',
+        'vendor/lib64/com.qti.feature2.gs.kamorta.so',
+        'vendor/lib64/com.qti.feature2.gs.kodiak.so',
+        'vendor/lib64/com.qti.feature2.gs.mannar.so',
+        'vendor/lib64/com.qti.feature2.gs.sdm865.so',
+        'vendor/lib64/com.qti.feature2.gs.sm8350.so',
+        'vendor/lib64/com.qti.feature2.hdr.so',
+        'vendor/lib64/com.qti.feature2.mcreprocrt.so',
+        'vendor/lib64/com.qti.feature2.memcpy.so',
+        'vendor/lib64/com.qti.feature2.mfsr.so',
+        'vendor/lib64/com.qti.feature2.ml.so',
+        'vendor/lib64/com.qti.feature2.mux.so',
+        'vendor/lib64/com.qti.feature2.photosolid.so',
+        'vendor/lib64/com.qti.feature2.qcfa.so',
+        'vendor/lib64/com.qti.feature2.rawhdr.so',
+        'vendor/lib64/com.qti.feature2.realtimeserializer.so',
+        'vendor/lib64/com.qti.feature2.rt.so',
+        'vendor/lib64/com.qti.feature2.rtmcx.so',
+        'vendor/lib64/com.qti.feature2.serializer.so',
+        'vendor/lib64/com.qti.feature2.statsregeneration.so',
+        'vendor/lib64/com.qti.feature2.stub.so',
+        'vendor/lib64/com.qti.feature2.swmf.so',
+        'vendor/lib64/com.qualcomm.mcx.distortionmapper.so',
+        'vendor/lib64/com.qualcomm.mcx.linearmapper.so',
+        'vendor/lib64/com.qualcomm.mcx.policy.mfl.so',
+        'vendor/lib64/com.qualcomm.qti.mcx.usecase.extension.so',
+        'vendor/lib64/libcamerapostproc.so',
+        'vendor/lib64/libcamxifestriping.so',
+        'vendor/lib64/libcamximageformatutils.so',
+        'vendor/lib64/libipebpsstriping.so',
+        'vendor/lib64/libipebpsstriping170.so',
+        'vendor/lib64/libjpege.so',
+        'vendor/lib64/libmctfengine_stub.so',
+        'vendor/lib64/libmfec.so',
+        'vendor/lib64/libmmcamera_bestats.so',
+        'vendor/lib64/libmmcamera_cac3.so',
+        'vendor/lib64/libmmcamera_lscv35.so',
+        'vendor/lib64/libmmcamera_mfnr.so',
+        'vendor/lib64/libmmcamera_mfnr_t4.so',
+        'vendor/lib64/libmmcamera_pdpc.so',
+        'vendor/lib64/libopestriping.so',
+        'vendor/lib64/libtfestriping.so',
+        'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so',
+    ): blob_fixup()
+        .replace_needed(
+            'android.hardware.graphics.allocator-V1-ndk.so',
+            'android.hardware.graphics.allocator-V2-ndk.so'
+    ),
+    (
+        'vendor/lib64/libmialgoengine.so',
+        'system_ext/lib64/libcameraopt.so',
+    ): blob_fixup()
+        .add_needed('libprocessgroup_shim.so'),
+    (
+        'vendor/lib64/libanc_single_rt_bokeh.so',
+        'vendor/lib64/libTrueSight.so',
+        'vendor/lib64/libMiVideoFilter.so',
+    ): blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_isSupported')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_lockPlanes')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
+    (
+        'vendor/lib64/libagm.so',
+        'vendor/lib64/libar-pal.so',
+        'vendor/lib64/libkaraokepal.so',
+        'vendor/lib64/libmcs.so',
+    ): blob_fixup()
+        .replace_needed(
+            'libaudioroute.so',
+            'libaudioroute-v34.so'
+    ),
+    'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
+        .add_line_if_missing('setsockopt: 1'),
+    (
+        'vendor/bin/qcc-vendor',
+        'vendor/bin/qms',
+        'vendor/bin/xtra-daemon',
+        'vendor/lib64/libcne.so',
+        'vendor/lib64/libqcc_sdk.so',
+        'vendor/lib64/libqms_client.so',
+    ): blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+        .add_needed('libcodec2_shim.so'),
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
+        .add_needed('libbinder_shim.so')
+        .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
