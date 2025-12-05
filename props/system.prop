@@ -1,0 +1,5 @@
+# Device
+ro.product.mod_device=warm_in_global
+
+# QTI
+ro.vendor.qti.va_aosp.support=1
