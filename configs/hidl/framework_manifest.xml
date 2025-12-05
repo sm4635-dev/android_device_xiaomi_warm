@@ -1,4 +1,4 @@
-<!-- Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
+<!-- Copyright (c) 2019, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -25,8 +25,17 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<manifest version="1.0" type="framework">
-    <!--QDMA hal-->
+<manifest version="7.0" type="framework">
+    <!-- atfwd -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.atcmdfwd</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAtCmdFwd</name>
+            <instance>AtCmdFwdService</instance>
+        </interface>
+    </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.qccsyshal</name>
         <transport>hwbinder</transport>

@@ -68,15 +68,21 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 # Hardware
 BOARD_USES_QCOM_HARDWARE := true
 
-# HIDL
+# VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/configs/hidl/compatibility_matrix.device.xml \
+    $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xiaomi.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
 
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/framework_manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
-DEVICE_MANIFEST_FILE := \
-    $(DEVICE_PATH)/configs/hidl/manifest_vendor.xml \
+DEVICE_FRAMEWORK_MANIFEST_FILE += \
+    $(DEVICE_PATH)/configs/hidl/framework_manifest.xml
+
+DEVICE_MATRIX_FILE := \
+    $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml \
+    hardware/qcom-caf/common/compatibility_matrix.xml
+
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/configs/hidl/manifest_pitti.xml \
     hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/manifest_non_qmaa.xml \
     hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/manifest_non_qmaa_extn.xml
 
