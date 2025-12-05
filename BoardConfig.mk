@@ -47,6 +47,13 @@ BOARD_USES_QCOM_HARDWARE := true
 # Platform
 TARGET_BOARD_PLATFORM := pitti
 
+# Recovery
+$(call soong_config_set, ufsbsg, ufsframework, bsg)
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_F2FS := true
+
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
