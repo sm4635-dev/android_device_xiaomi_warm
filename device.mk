@@ -128,10 +128,9 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.sh \
     libgralloc.qti \
     libqdMetaData \
+    vendor.qti.hardware.display.composer-service.xml \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer3-V1-ndk.vendor \
-    vendor.qti.hardware.display.composer-service.rc \
-    vendor.qti.hardware.display.composer-service.xml \
     vendor.qti.hardware.display.demura-service
 
 # DRM
