@@ -47,6 +47,9 @@ BOARD_USES_QCOM_HARDWARE := true
 # Platform
 TARGET_BOARD_PLATFORM := pitti
 
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 # Vendor security patch
 VENDOR_SECURITY_PATCH := 2025-07-01
 
