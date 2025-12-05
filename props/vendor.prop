@@ -232,5 +232,3 @@ ro.config.vc_call_vol_steps=11
 
 # WLAN
 wifi.aware.interface=wifi-aware0
-
-
