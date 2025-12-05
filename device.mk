@@ -254,7 +254,6 @@ PRODUCT_PACKAGES += \
     LineageDialerOverlayWarm \
     LineageSDKOverlayWarm \
     LineageSettingsOverlayWarm \
-    NfcOverlayWarm \
     SecureElementOverlayWarm \
     SettingsOverlayWarm \
     SettingsProviderOverlayWarmPOCO \
