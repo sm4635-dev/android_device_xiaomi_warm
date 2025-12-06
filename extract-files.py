@@ -36,7 +36,15 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-    ): lib_fixup_odm_suffix,
+        'libagm',
+        'libagmclient',
+        'libagmmixer',
+        'libar-acdb',
+        'libar-gsl',
+        'libats',
+        'liblx-osal',
+        'libvui_intf',
+    ): lib_fixup_remove,
     (
         'vendor.qti.diaghal@1.0',
         'vendor.qti.hardware.qccsyshal@1.0',
@@ -193,3 +201,4 @@ module = ExtractUtilsModule(
 if __name__ == '__main__':
     utils = ExtractUtils.device(module)
     utils.run()
+
